@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>About — Isabel Peebles</title>
+<meta name="description" content="Background, practice and materials.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FAF9F6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="assets/data.js"></script>
+</helmet>
+
+<div style="margin:0;background:#FAF9F6;color:#1C1C1A;font-family:'Helvetica Neue',Helvetica,'Inter',Arial,sans-serif;font-size:16px;line-height:1.6;letter-spacing:-0.005em;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;position:relative">
+
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(#E7E3D7 1px, transparent 1px), linear-gradient(90deg, #E7E3D7 1px, transparent 1px);background-size:30px 30px;-webkit-mask-image:radial-gradient(ellipse 66% 70% at 50% 46%, #000 0%, rgba(0,0,0,0.32) 62%, transparent 86%);mask-image:radial-gradient(ellipse 66% 70% at 50% 46%, #000 0%, rgba(0,0,0,0.32) 62%, transparent 86%)"></div>
+
+  <svg ref="{{ cursorRef }}" viewBox="0 0 1000 1000" aria-hidden="true" style="display:none"></svg>
+
+  <svg ref="{{ markRef }}" viewBox="0 0 1000 1000" aria-hidden="true" style="position:fixed;left:50%;top:calc(50% + 31px);transform:translate(-50%,-50%);color:#1C1C1A;opacity:0.12;pointer-events:none;z-index:0;overflow:visible"></svg>
+
+  <header style="position:sticky;top:0;z-index:100;background:rgba(250,249,246,0.85);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid #DEDACB">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box;height:62px;display:flex;align-items:center;justify-content:flex-end;gap:20px;position:relative;z-index:1">
+      <nav style="display:flex;align-items:center;gap:clamp(14px,2.4vw,30px)" aria-label="Primary">
+        <a href="Home.dc.html" style="font-size:13.5px;color:#6E6C64;padding:4px 0;border-bottom:1px solid transparent;transition:color 0.2s,border-color 0.2s" style-hover="color:#1C1C1A;border-bottom-color:#1C1C1A">Home</a>
+        <a href="Work.dc.html" style="font-size:13.5px;color:#6E6C64;padding:4px 0;border-bottom:1px solid transparent;transition:color 0.2s,border-color 0.2s" style-hover="color:#1C1C1A;border-bottom-color:#1C1C1A">Work</a>
+        <a href="About.dc.html" style="font-size:13.5px;color:#1C1C1A;padding:4px 0;border-bottom:1px solid #1C1C1A">About</a>
+        <a href="Contact.dc.html" style="font-size:13.5px;color:#6E6C64;padding:4px 0;border-bottom:1px solid transparent;transition:color 0.2s,border-color 0.2s" style-hover="color:#1C1C1A;border-bottom-color:#1C1C1A">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main style="flex:1 0 auto;position:relative;z-index:1">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box">
+      <div style="padding:clamp(30px,4.4vw,58px) 0 clamp(40px,6vw,76px)">
+
+        <div ref="{{ headRef }}" style="margin-bottom:clamp(22px,3vw,38px);opacity:0;transform:translateY(18px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1)">
+          <h1 style="font-size:clamp(25px,3.2vw,39px);line-height:1.08;letter-spacing:-0.035em;font-weight:500;margin:0">About</h1>
+        </div>
+
+        <div ref="{{ gridRef }}" style="display:grid;grid-template-columns:0.8fr 1.2fr;gap:clamp(28px,5vw,72px);align-items:start;min-width:0;opacity:0;transform:translateY(18px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1) 0.06s, transform 0.65s cubic-bezier(0.22,1,0.36,1) 0.06s">
+
+          <div style="aspect-ratio:4/5;overflow:hidden;border-radius:14px;background:#F2EFE6;display:block">
+            <img src="assets/images/portrait.webp" alt="Portrait of Isabel Peebles" loading="lazy" decoding="async" style="display:block;width:100%;height:100%;object-fit:cover;object-position:47% 43%">
+          </div>
+
+          <div>
+            <p style="color:#1C1C1A;font-size:clamp(17px,1.9vw,22px);line-height:1.45;letter-spacing:-0.022em;margin:0 0 20px">
+              I study Economics and Data Science at UCL, and I draw. Most of what
+              I make sits somewhere between the two.
+            </p>
+            <p style="color:#6E6C64;font-size:clamp(14.5px,1.3vw,16px);line-height:1.72;margin:0 0 20px">I'm a second-year Economics and Data Science student at UCL, endlessly curious about how data, design, and AI shape the decisions we make, and the way those decisions get communicated back to people.&nbsp;<br><br>Most of my time goes into building and creating things: analytical tools and dashboards from scratch, data pipelines that turn messy numbers into something useful, and branding or web design projects on the side. Outside of that, I paint and draw when I find the time, and generally just enjoy making things look pretty, whether it's a diagram or a canvas.&nbsp;<br><br>Right now, I'm especially interested in how AI is reshaping the economy and how people interact with data day to day. Always looking for the next thing to build :)</p>
+            
+            
+          </div>
+
+        </div>
+
+        <section ref="{{ expRef }}" aria-labelledby="experience-heading" style="margin-top:clamp(52px,7vw,96px);opacity:0;transform:translateY(18px);transition:opacity 0.65s cubic-bezier(0.22,1,0.36,1) 0.12s, transform 0.65s cubic-bezier(0.22,1,0.36,1) 0.12s">
+          <h2 id="experience-heading" style="font-size:clamp(20px,2.2vw,27px);line-height:1.1;letter-spacing:-0.03em;font-weight:500;margin:0 0 4px">Experience</h2>
+          <p style="font-size:13px;line-height:1.6;color:#6E6C64;margin:0 0 26px;max-width:58ch">Where I have worked, and what I made while I was there.</p>
+          <ul style="list-style:none;padding:0;margin:0;border-top:1px solid #DEDACB">
+            <sc-for list="{{ experience }}" as="e" hint-placeholder-count="1">
+              <li style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:clamp(20px,3vw,44px);padding:clamp(24px,3vw,34px) 0;border-bottom:1px solid #DEDACB">
+
+                <div style="flex:none;width:118px">
+                  <p style="font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6F6D66;margin:3px 0 0">{{ e.year }}</p>
+                </div>
+
+                <div style="flex:1 1 300px;min-width:0">
+                  <h3 style="font-size:clamp(17.5px,1.8vw,21px);line-height:1.25;letter-spacing:-0.022em;font-weight:500;margin:0">{{ e.org }}</h3>
+                  <p style="font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:#6F6D66;margin:6px 0 0">{{ e.role }}</p>
+                  <p style="font-size:clamp(14.5px,1.3vw,16px);line-height:1.72;color:#6E6C64;margin:14px 0 0;max-width:52ch">{{ e.summary }}</p>
+                  <ul style="list-style:none;padding:0;margin:18px 0 0;display:flex;flex-wrap:wrap;gap:8px">
+                    <sc-for list="{{ e.outputs }}" as="o" hint-placeholder-count="2">
+                      <li style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#1C1C1A;border:1px solid #DEDACB;border-radius:999px;padding:5px 12px">{{ o }}</li>
+                    </sc-for>
+                  </ul>
+                </div>
+
+                <sc-if value="{{ e.artefact }}" hint-placeholder-val="{{ false }}">
+                  <figure style="flex:none;width:176px;margin:0">
+                    <div style="background:#F2EFE6;border-radius:10px;padding:28px;display:flex;align-items:center;justify-content:center">
+                      <img src="{{ e.artefact.src }}" alt="{{ e.artefact.label }}" loading="lazy" decoding="async" style="display:block;width:100%;height:auto">
+                    </div>
+                    <figcaption style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#6F6D66;margin-top:10px;line-height:1.5">{{ e.artefact.label }}</figcaption>
+                  </figure>
+                </sc-if>
+
+              </li>
+            </sc-for>
+          </ul>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.headRef = React.createRef();
+    this.gridRef = React.createRef();
+    this.cursorRef = React.createRef();
+    this.markRef = React.createRef();
+    this.expRef = React.createRef();
+    this.state = { experience: [] };
+  }
+  // data.js is a plain <script> in the helmet; it may still be in flight when we
+  // mount, so wait for it rather than racing it.
+  siteData() {
+    if (window.SITE_DATA) return Promise.resolve(window.SITE_DATA);
+    return new Promise(resolve => {
+      const t = setInterval(() => {
+        if (window.SITE_DATA) { clearInterval(t); resolve(window.SITE_DATA); }
+      }, 30);
+    });
+  }
+  componentDidMount() {
+    this.siteData().then(d => this.setState({ experience: d.EXPERIENCE || [] }));
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    [this.headRef, this.gridRef, this.expRef].forEach((ref, i) => {
+      const el = ref.current;
+      if (!el) return;
+      if (reduced) { el.style.opacity = '1'; el.style.transform = 'none'; return; }
+      setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, 60 + i * 90);
+    });
+    this.buildCursorMark(this.cursorRef.current);
+    this.drawLiveMark(this.markRef.current);
+    this.sizeLiveMark();
+    window.addEventListener('resize', this.onMarkResize = () => this.sizeLiveMark());
+    const cursor = this.cursorRef.current;
+    if (cursor) {
+      // one compositor-only write per frame instead of one per mousemove event
+      this.mx = 0; this.my = 0;
+      this.paintCursor = () => {
+        cursor.style.transform = 'translate(-50%,-50%) translate3d(' + this.mx + 'px,' + this.my + 'px,0)';
+        cursor.style.opacity = '1';
+      };
+      this.onMove = e => {
+        this.mx = e.clientX; this.my = e.clientY;
+        if (this.moveRaf) return;
+        this.moveRaf = requestAnimationFrame(() => { this.moveRaf = 0; this.paintCursor(); });
+      };
+      this.onLeave = () => { cursor.style.opacity = '0'; };
+      document.addEventListener('mousemove', this.onMove, { passive: true });
+      document.addEventListener('mouseleave', this.onLeave);
+    }
+  }
+  // The same live diamond the home-page scroll lands on, held as a constant backdrop.
+  drawLiveMark(svg) {
+    if (!svg) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const R = 460, CX = 500, CY = 500, N = 10, K = 0.54;
+    const QUADS = ['ur', 'ul', 'lr', 'll'];
+    svg.innerHTML = '';
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('fill', 'none'); g.setAttribute('stroke', 'currentColor');
+    g.setAttribute('stroke-width', '1.5'); g.setAttribute('opacity', '0.92');
+    svg.appendChild(g);
+    const pool = [];
+    QUADS.forEach(() => { for (let i = 0; i <= N; i++) { const l = document.createElementNS(NS, 'line'); g.appendChild(l); pool.push(l); } });
+    const render = s => {
+      let idx = 0;
+      QUADS.forEach((q, qi) => {
+        const sx = (q === 'ur' || q === 'lr') ? 1 : -1;
+        const sy = (q === 'ur' || q === 'ul') ? -1 : 1;
+        const tMin = 70 + Math.sin(s * 0.42 + qi * 1.57) * 26 + Math.sin(s * 0.71 + qi * 0.9) * 9;
+        const sc = tMin * R, r = Math.pow(R / tMin, 1 / N);
+        for (let i = 0; i <= N; i++) {
+          const t = tMin * Math.pow(r, i), l = pool[idx++];
+          l.setAttribute('x1', (CX + sx * t).toFixed(1)); l.setAttribute('y1', CY);
+          l.setAttribute('x2', CX); l.setAttribute('y2', (CY + sy * (sc / t)).toFixed(1));
+        }
+      });
+      const spin = -(s * 1.6 + Math.sin(s * 0.31) * 9), scale = K * (1 + Math.sin(s * 0.53) * 0.05);
+      g.setAttribute('transform', 'rotate(' + spin.toFixed(2) + ' ' + CX + ' ' + CY + ') translate(' + CX + ' ' + CY + ') scale(' + scale.toFixed(3) + ') translate(' + (-CX) + ' ' + (-CY) + ')');
+    };
+    render(0);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let t0 = null, lastPaint = -999;
+    // 30fps cap + skip while the tab is hidden: the mark is decorative, and a 120Hz
+    // display would otherwise burn 4x the attribute writes for no visible gain.
+    const tick = now => {
+      if (t0 === null) t0 = now;
+      if (!document.hidden && now - lastPaint >= 32) { lastPaint = now; render((now - t0) / 1000); }
+      svg._raf = requestAnimationFrame(tick);
+    };
+    svg._raf = requestAnimationFrame(tick);
+  }
+  sizeLiveMark() {
+    const svg = this.markRef.current;
+    if (!svg) return;
+    const field = Math.min(Math.max(320, window.innerHeight - 62) / 1.16, window.innerWidth * 0.84);
+    const box = Math.round(field * 1.4004);
+    svg.style.width = box + 'px';
+    svg.style.height = box + 'px';
+  }
+  buildCursorMark(svg) {
+    if (!svg) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const R = 460, CX = 500, CY = 500, N = 10;
+    const QUADS = ['ur', 'ul', 'lr', 'll'];
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('fill', 'none'); g.setAttribute('stroke', 'currentColor'); g.setAttribute('stroke-width', '2.4');
+    svg.appendChild(g);
+    QUADS.forEach(q => {
+      const sx = (q === 'ur' || q === 'lr') ? 1 : -1;
+      const sy = (q === 'ur' || q === 'ul') ? -1 : 1;
+      const tMin = 90, sc = tMin * R, r = Math.pow(R / tMin, 1 / N);
+      for (let i = 0; i <= N; i++) {
+        const t = tMin * Math.pow(r, i);
+        const l = document.createElementNS(NS, 'line');
+        l.setAttribute('x1', (CX + sx * t).toFixed(1)); l.setAttribute('y1', CY);
+        l.setAttribute('x2', CX); l.setAttribute('y2', (CY + sy * (sc / t)).toFixed(1));
+        g.appendChild(l);
+      }
+    });
+  }
+  renderVals() { return { headRef: this.headRef, gridRef: this.gridRef, expRef: this.expRef, cursorRef: this.cursorRef, markRef: this.markRef, experience: this.state.experience }; }
+}
+
+</script>
+</body>
+</html>

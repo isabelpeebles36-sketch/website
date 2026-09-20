@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Work — Isabel Peebles</title>
+<meta name="description" content="Selected pieces and projects by Isabel Peebles.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#FAF9F6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F5F3EE; --bg-elevated: #EAE7E0; --fg: #0C0C0B; --fg-muted: #6B6B65;
+  --border: #D7D4CB; --btn-bg: #0C0C0B; --btn-fg: #F5F3EE;
+  --grid-line: #E2DFD6; --header-bg: rgba(245,243,238,0.85); --shadow: rgba(12,12,11,0.18);
+}
+a { color: var(--fg); }
+a:hover { color: var(--fg); }
+.ip-dotgrid { position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); background-size: 30px 30px; -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 0%, rgba(0,0,0,0.25) 60%, transparent 84%); mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, #000 0%, rgba(0,0,0,0.25) 60%, transparent 84%); }
+.ip-reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1), transform 0.65s cubic-bezier(0.22,1,0.36,1); }
+.ip-reveal.is-in { opacity: 1; transform: none; }
+.ip-sa-empty { background: transparent; box-shadow: inset 0 0 0 1px transparent; }
+.ip-sa-piece { cursor: pointer; transition: filter 0.4s cubic-bezier(0.22,1,0.36,1); box-shadow: inset 0 0 0 1px transparent; border-radius: 2px; }
+.ip-sa-piece:hover, .ip-sa-piece.is-active { filter: drop-shadow(0 10px 20px var(--shadow)); }
+.ip-gallery a:hover .ip-g-tile { transform: translateY(-4px); }
+@keyframes ip-tile-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ip-mesh-draw { from { stroke-dashoffset: var(--len); } to { stroke-dashoffset: 0; } }
+</style>
+<script src="assets/data.js"></script>
+</helmet>
+
+<div style="margin:0;background:var(--bg);color:var(--fg);font-family:'Helvetica Neue',Helvetica,'Inter',Arial,sans-serif;font-size:16px;line-height:1.6;letter-spacing:-0.005em;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column;position:relative;cursor:none;transition:background 0.4s,color 0.4s">
+
+  <div class="ip-dotgrid" aria-hidden="true"></div>
+
+  <svg ref="{{ cursorRef }}" viewBox="0 0 1000 1000" aria-hidden="true" style="position:fixed;z-index:250;width:28px;height:28px;color:var(--fg);pointer-events:none;opacity:0;left:0;top:0;transform:translate(-50%,-50%);transition:opacity 0.2s"></svg>
+
+  <header style="position:sticky;top:0;z-index:100;background:var(--header-bg);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--border);transition:background 0.4s,border-color 0.4s">
+    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box;height:62px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;z-index:1">
+      <a href="Home.dc.html" style="display:flex;align-items:center;gap:9px;font-size:13.5px;letter-spacing:0.01em;color:var(--fg);text-decoration:none;font-weight:500;white-space:nowrap;flex:none">
+        <svg ref="{{ headerLogoRef }}" viewBox="0 0 1000 1000" aria-hidden="true" style="width:17px;height:17px;color:var(--fg);flex:none"></svg>
+        Isabel Peebles
+      </a>
+      <nav style="display:flex;align-items:center;gap:clamp(14px,2.4vw,28px)" aria-label="Primary">
+        <a href="Home.dc.html" style="font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);padding:4px 0;border-bottom:1px solid transparent;text-decoration:none;transition:color 0.2s,border-color 0.2s" style-hover="color:var(--fg);border-bottom-color:var(--fg)">Home</a>
+        <a href="Work.dc.html" style="font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg);padding:4px 0;border-bottom:1px solid var(--fg);text-decoration:none">Work</a>
+        <a href="About.dc.html" style="font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);padding:4px 0;border-bottom:1px solid transparent;text-decoration:none;transition:color 0.2s,border-color 0.2s" style-hover="color:var(--fg);border-bottom-color:var(--fg)">About</a>
+        <a href="Contact.dc.html" style="font-size:12.5px;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg-muted);padding:4px 0;border-bottom:1px solid transparent;text-decoration:none;transition:color 0.2s,border-color 0.2s" style-hover="color:var(--fg);border-bottom-color:var(--fg)">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <svg ref="{{ ambientMarkRefCallback }}" viewBox="0 0 1000 1000" aria-hidden="true" style="position:fixed;left:50%;top:calc(50% + 31px);transform:translate(-50%,-50%);color:var(--fg);opacity:0.34;pointer-events:none;z-index:0;overflow:visible"></svg>
+
+  <main style="flex:1 0 auto;position:relative;z-index:1;overflow-y:{{ overflowY }}">
+    <div style="width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,64px);box-sizing:border-box">
+      <div ref="{{ fadeRef }}" class="ip-reveal" style="padding:clamp(30px,4.4vw,58px) 0 clamp(40px,6vw,76px)">
+
+        <div style="position:relative;padding-left:{{ meshPadLeft }}">
+
+          <div style="{{ workHeadStyle }}">
+            <h1 style="font-size:clamp(25px,3.2vw,39px);line-height:1.08;letter-spacing:-0.035em;font-weight:500;margin:0;color:var(--fg)">Pieces</h1>
+
+            <sc-if value="{{ showPiecesMesh }}">
+              <div style="min-height:52px;margin-top:22px" aria-live="polite">
+                <sc-if value="{{ hoverPiece }}" hint-placeholder-val="{{ false }}">
+                  <p style="font-size:18px;line-height:1.3;letter-spacing:-0.015em;margin:0 0 2px;color:var(--fg)">{{ hoverPiece.title }}</p>
+                  <p style="font-size:13px;line-height:1.6;color:var(--fg-muted);margin:0">{{ hoverPiece.year }}</p>
+                </sc-if>
+                <sc-if value="{{ noHoverPiece }}">
+                  <p style="font-size:13px;line-height:1.6;color:var(--fg-muted);margin:0">Hover a tile to see the piece. Click to open it.</p>
+                </sc-if>
+              </div>
+              <div style="display:flex;gap:6px;margin-top:4px" role="group" aria-label="Change how the pieces are displayed">
+                <button aria-pressed="{{ ariaPressedMesh }}" onClick="{{ setViewMesh }}" style="{{ viewMeshBtnStyle }}">Star</button>
+                <button aria-pressed="{{ ariaPressedList }}" onClick="{{ setViewList }}" style="{{ viewListBtnStyle }}">List</button>
+              </div>
+            </sc-if>
+            <sc-if value="{{ showPiecesList }}">
+              <div style="display:flex;gap:6px;margin-top:18px" role="group" aria-label="Change how the pieces are displayed">
+                <button aria-pressed="{{ ariaPressedMesh }}" onClick="{{ setViewMesh }}" style="{{ viewMeshBtnStyle }}">Star</button>
+                <button aria-pressed="{{ ariaPressedList }}" onClick="{{ setViewList }}" style="{{ viewListBtnStyle }}">List</button>
+              </div>
+            </sc-if>
+          </div>
+
+          <sc-if value="{{ showPiecesMesh }}" hint-placeholder-val="{{ true }}">
+            <div class="ip-mesh-wrap" ref="{{ meshWrapRefCallback }}" style="position:fixed;left:50%;top:calc(50% + 31px);transform:translate(-50%,-50%);z-index:1">
+              <div ref="{{ meshRefCallback }}" role="img" aria-label="A field of tiles, each holding a piece of work and linking to it, arranged in the shape of the diamond mark." style="position:absolute;inset:0;z-index:1"></div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ showPiecesList }}" hint-placeholder-val="{{ false }}">
+            <ul style="list-style:none;padding:0;margin:0;border-top:1px solid var(--border)">
+              <sc-for list="{{ pieces }}" as="p" hint-placeholder-count="0">
+                <li style="border-bottom:1px solid var(--border)">
+                  <a href="{{ p.href }}" style="display:grid;grid-template-columns:76px 1fr auto;gap:18px;align-items:center;padding:14px 2px;color:var(--fg);text-decoration:none;transition:padding-left 0.3s" style-hover="padding-left:10px">
+                    <span style="width:76px;height:76px;display:flex;align-items:center;justify-content:center;flex:none">
+                      <span class="ip-imgbox" data-src="{{ p.cover }}" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%"></span>
+                    </span>
+                    <span>
+                      <span style="font-size:18px;line-height:1.3;letter-spacing:-0.015em">{{ p.title }}</span>
+                      <sc-if value="{{ p.medium }}" hint-placeholder-val="{{ false }}"><br><span style="font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--fg-muted)">{{ p.medium }}</span></sc-if>
+                    </span>
+                    <span style="color:var(--fg-muted);font-size:13px">{{ p.year }}</span>
+                  </a>
+                </li>
+              </sc-for>
+            </ul>
+          </sc-if>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const NS = 'http://www.w3.org/2000/svg';
+const THEME_KEY = 'ip-theme';
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.meshOutlineRef = React.createRef();
+    this.meshRef = React.createRef();
+    this.meshWrapRef = React.createRef();
+    this.meshNode = null;
+    this.wrapNode = null;
+    this.meshRefCallback = node => {
+      this.meshNode = node;
+      if (node && this.state.pieces.length) { this.buildMesh(this.state.pieces, this.cover); }
+    };
+    this.ambientMarkRefCallback = node => {
+      if (node === this.ambientNode) return;
+      if (this.ambientNode && this.ambientNode._raf) cancelAnimationFrame(this.ambientNode._raf);
+      this.ambientNode = node;
+      if (node) { this.drawMeshMark(node); this.sizeStage(); }
+    };
+    this.meshWrapRefCallback = node => {
+      this.wrapNode = node;
+      if (node && this.state.pieces.length) { this.sizeStage(); }
+    };
+    this.cursorRef = React.createRef();
+    this.headerLogoRef = React.createRef();
+    this.fadeRef = React.createRef();
+    var initTab = 'pieces';
+    const theme = 'light';
+    this.state = {
+      tab: initTab,
+      view: (typeof window !== 'undefined' && window.innerWidth < 760) ? 'list' : 'mesh',
+      hoverPiece: null,
+      pieces: [], projects: [],
+      theme
+    };
+    this.placed = [];
+    this.frozen = false;
+  }
+
+  siteData() {
+    if (window.SITE_DATA) return Promise.resolve(window.SITE_DATA);
+    return new Promise(resolve => {
+      const t = setInterval(() => {
+        if (window.SITE_DATA) { clearInterval(t); resolve(window.SITE_DATA); }
+      }, 30);
+    });
+  }
+  async componentDidMount() {
+    this.applyTheme(this.state.theme);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (this.fadeRef.current) {
+      if (reduced) { this.fadeRef.current.classList.add('is-in'); }
+      else setTimeout(() => this.fadeRef.current && this.fadeRef.current.classList.add('is-in'), 60);
+    }
+    const data = await this.siteData();
+    this.cover = data.cover;
+    this.setState({ pieces: data.PIECES, projects: data.PROJECTS }, () => {
+      this.buildMesh(data.PIECES, data.cover);
+      this.sizeStage();
+    });
+    window.addEventListener('resize', this.onResize = () => this.sizeStage());
+    this.buildStrokeMark(this.cursorRef.current);
+    this.buildStrokeMark(this.headerLogoRef.current);
+    const cursor = this.cursorRef.current;
+    if (cursor) {
+      // one compositor-only write per frame instead of one per mousemove event
+      this.mx = 0; this.my = 0;
+      this.paintCursor = () => {
+        cursor.style.transform = 'translate(-50%,-50%) translate3d(' + this.mx + 'px,' + this.my + 'px,0)';
+        cursor.style.opacity = '1';
+      };
+      this.onMove = e => {
+        this.mx = e.clientX; this.my = e.clientY;
+        if (this.moveRaf) return;
+        this.moveRaf = requestAnimationFrame(() => { this.moveRaf = 0; this.paintCursor(); });
+      };
+      this.onLeave = () => { cursor.style.opacity = '0'; };
+      document.addEventListener('mousemove', this.onMove, { passive: true });
+      document.addEventListener('mouseleave', this.onLeave);
+    }
+  }
+  applyTheme(t) {
+    document.documentElement.setAttribute('data-ip-theme', t);
+    try { localStorage.setItem(THEME_KEY, t); } catch (e) {}
+  }
+  buildStrokeMark(svg) {
+    if (!svg) return;
+    svg.innerHTML = '';
+    const R = 460, CX = 500, CY = 500, N = 10;
+    const QUADS = ['ur', 'ul', 'lr', 'll'];
+    const g = document.createElementNS(NS, 'g');
+    g.setAttribute('fill', 'none'); g.setAttribute('stroke', 'currentColor'); g.setAttribute('stroke-width', '2.4');
+    svg.appendChild(g);
+    QUADS.forEach(q => {
+      const sx = (q === 'ur' || q === 'lr') ? 1 : -1;
+      const sy = (q === 'ur' || q === 'ul') ? -1 : 1;
+      const tMin = 90, sc = tMin * R, r = Math.pow(R / tMin, 1 / N);
+      for (let i = 0; i <= N; i++) {
+        const t = tMin * Math.pow(r, i);
+        const l = document.createElementNS(NS, 'line');
+        l.setAttribute('x1', (CX + sx * t).toFixed(1)); l.setAttribute('y1', CY);
+        l.setAttribute('x2', CX); l.setAttribute('y2', (CY + sy * (sc / t)).toFixed(1));
+        g.appendChild(l);
+      }
+    });
+  }
+  componentWillUnmount() {
+    if (this.onMove) document.removeEventListener('mousemove', this.onMove);
+    if (this.onLeave) document.removeEventListener('mouseleave', this.onLeave);
+    if (this.moveRaf) cancelAnimationFrame(this.moveRaf);
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.ambientNode && this.ambientNode._raf) cancelAnimationFrame(this.ambientNode._raf);
+    (this._markNodes || []).forEach(n => { if (n._raf) cancelAnimationFrame(n._raf); });
+    window.removeEventListener('resize', this.onResize);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    this.syncImgBoxes();
+    const wasMesh = prevState.tab === 'pieces' && prevState.view === 'mesh';
+    const isMesh = this.state.tab === 'pieces' && this.state.view === 'mesh';
+    if (isMesh && this.state.pieces.length && (!wasMesh || !this.placed.length)) {
+      if (this.meshNode) this.buildMesh(this.state.pieces, this.cover);
+      if (this.wrapNode) this.sizeStage();
+    }
+  }
+  syncImgBoxes() {
+    document.querySelectorAll('.ip-imgbox[data-src]').forEach(el => {
+      const url = el.getAttribute('data-src');
+      if (!url || url.indexOf('{{') !== -1 || el.dataset.done === url) return;
+      el.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = url; img.alt = ''; img.loading = 'lazy'; img.decoding = 'async';
+      img.style.cssText = 'max-width:100%;max-height:100%;width:auto;height:auto;display:block';
+      el.appendChild(img);
+      el.dataset.done = url;
+    });
+  }
+  // The same live oscillating mark as the home page, faded back behind the tiles.
+  drawMeshMark(svg) {
+    if (!svg) return;
+    if (!this._markNodes) this._markNodes = [];
+    this._markNodes.forEach(n => { if (n !== svg && n._raf) cancelAnimationFrame(n._raf); });
+    this._markNodes = [svg];
+    if (svg._raf) cancelAnimationFrame(svg._raf);
+    svg.innerHTML = '';
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const R = 460, CX = 500, CY = 500;
+    const QUADS = ['ur', 'ul', 'lr', 'll'];
+    const LAYERS = [
+      { n: 10, w: 1.5, o: 0.92, k: 0.54, dir: -1 }
+    ];
+    LAYERS.forEach(L => {
+      L.g = document.createElementNS(NS, 'g');
+      L.g.setAttribute('fill', 'none');
+      L.g.setAttribute('stroke', 'currentColor');
+      L.g.setAttribute('stroke-width', L.w);
+      L.g.setAttribute('opacity', L.o);
+      svg.appendChild(L.g);
+      L.pool = [];
+      QUADS.forEach(() => {
+        for (let i = 0; i <= L.n; i++) {
+          const l = document.createElementNS(NS, 'line');
+          L.g.appendChild(l);
+          L.pool.push(l);
+        }
+      });
+    });
+    const paint = (L, s, spin) => {
+      let idx = 0;
+      QUADS.forEach((q, qi) => {
+        const sx = (q === 'ur' || q === 'lr') ? 1 : -1;
+        const sy = (q === 'ur' || q === 'ul') ? -1 : 1;
+        const tMin = 70 + Math.sin(s * 0.42 + qi * 1.57) * 26 + Math.sin(s * 0.71 + qi * 0.9) * 9;
+        const sc = tMin * R, r = Math.pow(R / tMin, 1 / L.n);
+        for (let i = 0; i <= L.n; i++) {
+          const t = tMin * Math.pow(r, i), l = L.pool[idx++];
+          l.setAttribute('x1', (CX + sx * t).toFixed(1));
+          l.setAttribute('y1', CY);
+          l.setAttribute('x2', CX);
+          l.setAttribute('y2', (CY + sy * (sc / t)).toFixed(1));
+        }
+      });
+      const scale = L.k * (1 + Math.sin(s * 0.53) * 0.05);
+      L.g.setAttribute('transform', 'rotate(' + (spin * L.dir).toFixed(2) + ' ' + CX + ' ' + CY + ') translate(' + CX + ' ' + CY + ') scale(' + scale.toFixed(3) + ') translate(' + (-CX) + ' ' + (-CY) + ')');
+    };
+    const render = s => { const spin = s * 1.6 + Math.sin(s * 0.31) * 9; LAYERS.forEach(L => paint(L, s, spin)); };
+    render(0);
+    if (reduced) return;
+    let t0 = null, lastPaint = -999;
+    // 30fps cap + skip while the tab is hidden: the mark is decorative, and a 120Hz
+    // display would otherwise burn 4x the attribute writes for no visible gain.
+    const tick = now => {
+      if (t0 === null) t0 = now;
+      if (!document.hidden && now - lastPaint >= 32) { lastPaint = now; render((now - t0) / 1000); }
+      svg._raf = requestAnimationFrame(tick);
+    };
+    svg._raf = requestAnimationFrame(tick);
+  }
+  // One geometry for the whole site: the tile field spans the viewport the same way
+  // it does at the end of the home-page zoom, and the diamond's tips land on the
+  // tip tiles' centres (0.92 of the mark box = 0.696 of the field).
+  sizeStage() {
+    const sh = Math.max(320, window.innerHeight - 62), sw = window.innerWidth;
+    const field = Math.round(Math.min(sh / 1.16, sw * 0.84));
+    const wrap = this.wrapNode;
+    if (wrap) { wrap.style.width = field + 'px'; wrap.style.height = field + 'px'; }
+    const mark = this.ambientNode;
+    if (mark) {
+      const box = Math.round(field * 1.4004);
+      mark.style.width = box + 'px';
+      mark.style.height = box + 'px';
+    }
+  }
+
+  // Square tiles laid on a grid tracing a four-pointed star silhouette —
+  // same cell plan as the original, in plain positioned HTML (not SVG) so
+  // artwork <img> tags load reliably.
+  buildMesh(PIECES, cover) {
+    const host = this.meshNode;
+    if (!host) return;
+    const STAR_CELLS = [
+      [0,-2],[2,0],[0,2],[-2,0],
+      [-1,-1],[1,-1],[1,1],[-1,1],
+      [0,-1],[0,1],[-1,0],[1,0],
+      [-1,-2],[1,-2],[1,2],[-1,2],
+      [-2,-1],[2,-1],[2,1],[-2,1]
+    ];
+    const cellPct = 17.4;
+    const PULL = [1, 1, 1, 1, 0.82, 0.82, 0.82, 0.82, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+    const dists = STAR_CELLS.map(([a, b]) => Math.sqrt(a * a + b * b));
+    const minD = Math.min(...dists), maxD = Math.max(...dists);
+    host.innerHTML = '';
+    this.placed = [];
+    PIECES.slice(0, STAR_CELLS.length).forEach((p, n) => {
+      const [a, b] = STAR_CELLS[n];
+      const pull = PULL[n];
+      const cx = 50 + a * cellPct * pull, cy = 50 + b * cellPct * pull;
+      const taper = 1 - 0.2 * ((dists[n] - minD) / (maxD - minD));
+      const sidePct = cellPct * 1.14 * taper;
+      const wrap = document.createElement('a');
+      wrap.className = 'ip-sa-piece';
+      wrap.style.zIndex = String(20 - Math.round(dists[n] * 5));
+      wrap.href = 'Project.dc.html#' + p.slug;
+      wrap.setAttribute('aria-label', p.title + ', ' + p.year);
+      wrap.setAttribute('tabindex', '0');
+      wrap.style.cssText = `position:absolute;left:${(cx - sidePct/2).toFixed(2)}%;top:${(cy - sidePct/2).toFixed(2)}%;width:${sidePct.toFixed(2)}%;height:${sidePct.toFixed(2)}%;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1),filter 0.3s ease`;
+      const img = cover(p);
+      if (img) {
+        wrap.innerHTML = `<img src="${img}" alt="" loading="lazy" decoding="async" style="max-width:100%;max-height:100%;width:auto;height:auto;display:block;margin:0 auto">`;
+      } else {
+        wrap.innerHTML = `<div class="ip-sa-empty" style="width:100%;height:100%"></div>`;
+      }
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        wrap.style.animation = 'ip-tile-in 0.7s cubic-bezier(0.22,1,0.36,1) ' + (0.45 + (dists[n] - minD) / (maxD - minD) * 0.55).toFixed(2) + 's both';
+      }
+      host.appendChild(wrap);
+      this.placed.push({ el: wrap, p, cx, cy, z: String(20 - Math.round(dists[n] * 5)) });
+      wrap.addEventListener('mouseenter', () => { this.hoverEl = wrap; this.onHover(p); });
+      wrap.addEventListener('mouseleave', () => { if (this.hoverEl === wrap) this.hoverEl = null; this.onHover(null); });
+      wrap.addEventListener('focus', () => { wrap.classList.add('is-active'); this.hoverEl = wrap; this.onHover(p); });
+      wrap.addEventListener('blur', () => { wrap.classList.remove('is-active'); this.hoverEl = null; this.onHover(null); });
+    });
+
+    const RADIUS = 130, PUSH = 24;
+    host.onmousemove = e => {
+      const rect = host.getBoundingClientRect();
+      const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+      this.placed.forEach(t => {
+        if (t.el === this.hoverEl) { t.el.style.transform = 'scale(1.55)'; t.el.style.zIndex = '60'; return; }
+        t.el.style.zIndex = t.z;
+        const tx = (t.cx / 100) * rect.width, ty = (t.cy / 100) * rect.height;
+        const dx = tx - mx, dy = ty - my;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < RADIUS) {
+          const f = (1 - dist / RADIUS) * PUSH;
+          const nx = dist ? dx / dist : 0, ny = dist ? dy / dist : 0;
+          t.el.style.transform = `translate(${(nx * f).toFixed(1)}px, ${(ny * f).toFixed(1)}px) scale(${(1 + (1 - dist / RADIUS) * 0.08).toFixed(3)})`;
+        } else {
+          t.el.style.transform = 'translate(0,0) scale(1)';
+        }
+      });
+    };
+    host.onmouseleave = () => {
+      this.hoverEl = null;
+      this.placed.forEach(t => { t.el.style.transform = 'translate(0,0) scale(1)'; t.el.style.zIndex = t.z; });
+    };
+  }
+
+  onHover(p) {
+    this.setState({ hoverPiece: p });
+  }
+
+  setTab(t) {
+    this.setState({ tab: t });
+    if (history.replaceState) history.replaceState(null, '', t === 'projects' ? '#projects' : location.pathname);
+  }
+  setView(v) { this.setState({ view: v }); }
+
+  tabStyle(name) {
+    const on = this.state.tab === name;
+    return `font-size:clamp(25px,3.2vw,39px);line-height:1.08;letter-spacing:-0.035em;font-weight:500;color:${on ? 'var(--fg)' : 'var(--fg-muted)'};padding:0;background:none;border:none;cursor:pointer;transition:color 0.25s;font-family:inherit`;
+  }
+  viewBtnStyle(name) {
+    const on = this.state.view === name;
+    return `padding:7px 15px;border-radius:999px;border:1px solid ${on ? 'var(--fg)' : 'var(--border)'};font-size:12.5px;color:${on ? 'var(--btn-fg)' : 'var(--fg-muted)'};background:${on ? 'var(--btn-bg)' : 'transparent'};transition:all 0.2s;cursor:pointer;font-family:inherit`;
+  }
+
+  renderVals() {
+    const tab = this.state.tab, view = this.state.view;
+    const isPieces = tab === 'pieces', isProjects = tab === 'projects';
+    const isMesh = view === 'mesh', isList = view === 'list';
+    const showPiecesMesh = isPieces && isMesh;
+    const showPiecesList = isPieces && isList;
+    const workHeadStyle = showPiecesMesh
+      ? 'position:absolute;top:0;left:0;z-index:2;width:min(330px, 40%)'
+      : 'position:static;width:auto;margin-bottom:clamp(22px,3vw,38px)';
+    return {
+      isPieces, isProjects, isMesh, isList, showPiecesMesh, showPiecesList,
+      hoverPiece: this.state.hoverPiece,
+      noHoverPiece: !this.state.hoverPiece,
+      overflowY: showPiecesMesh ? 'hidden' : 'auto',
+      workHeadStyle,
+      meshPadLeft: showPiecesMesh ? 'min(330px, 40%)' : '0',
+      setTabPieces: () => this.setTab('pieces'),
+      setTabProjects: () => this.setTab('projects'),
+      setViewMesh: () => this.setView('mesh'),
+      setViewList: () => this.setView('list'),
+      tabPiecesStyle: this.tabStyle('pieces'),
+      tabProjectsStyle: this.tabStyle('projects'),
+      viewMeshBtnStyle: this.viewBtnStyle('mesh'),
+      viewListBtnStyle: this.viewBtnStyle('list'),
+      ariaSelectedPieces: isPieces, ariaSelectedProjects: isProjects,
+      ariaPressedMesh: isMesh, ariaPressedList: isList,
+      ambientMarkRefCallback: this.ambientMarkRefCallback,
+      meshRefCallback: this.meshRefCallback, meshWrapRefCallback: this.meshWrapRefCallback, cursorRef: this.cursorRef,
+      headerLogoRef: this.headerLogoRef, fadeRef: this.fadeRef,
+      year: new Date().getFullYear(),
+      pieces: this.state.pieces.map(p => ({ title: p.title, year: p.year, medium: p.medium, cover: this.cover(p), noCover: !this.cover(p), href: 'Project.dc.html#' + p.slug })),
+      projects: this.state.projects.map(p => ({ title: p.title, year: p.year, cover: this.cover(p), noCover: !this.cover(p), href: 'Project.dc.html#' + p.slug, roleLine: [p.client, p.role].filter(Boolean).join(' · ') }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>
